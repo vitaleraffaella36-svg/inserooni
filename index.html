@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>Intelligenza Sovrumana Indizi — Vico Equense</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo_drago.png" alt="Logo drago stilizzato">
+        <div>
+          <strong>INTELLIGENZA SOVRUMANA INDIZI</strong>
+          <small>Vico Equense · assistente investigativo gratuito</small>
+        </div>
+      </div>
+      <span class="version">Versione 2 · base dati v5.4 · offline-friendly</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">ASSISTENTE INVESTIGATIVO LOCALE</div>
+        <h1>Interroga la Knowledge Base di Vico Equense come se fosse una pseudo‑AI.</h1>
+        <p>
+          Questa versione migliora la ricerca per indizi, mostra una risposta sintetica in stile AI
+          e ordina meglio i candidati. Tutto funziona direttamente nel browser, senza API esterne.
+        </p>
+
+        <form id="searchForm" class="querybox">
+          <label for="query" class="sr">Inserisci la tua domanda o una lista di indizi</label>
+          <textarea id="query" rows="3" placeholder="Es. Cerco un luogo collegato a un eremita, una croce e una sorgente"></textarea>
+          <div class="query-actions">
+            <div class="filters">
+              <label>Territorio
+                <select id="locality">
+                  <option value="">Tutte le località</option>
+                </select>
+              </label>
+              <label>Ambito
+                <select id="scope">
+                  <option value="all">Tutti i contenuti</option>
+                  <option value="places">Luoghi e fatti</option>
+                  <option value="churches">Chiese e cappelle</option>
+                  <option value="trails">Sentieri</option>
+                  <option value="lodging">Strutture ricettive</option>
+                </select>
+              </label>
+              <label class="ck"><input type="checkbox" id="allWords"> Tutti gli indizi obbligatori</label>
+            </div>
+            <button type="submit" class="cta">Interroga <span>→</span></button>
+          </div>
+        </form>
+
+        <div class="examples">
+          <span>Prove rapide:</span>
+          <button type="button" data-q="Quale luogo è collegato a un eremita, una croce e una sorgente?">Eremita, croce, sorgente</button>
+          <button type="button" data-q="Cerco un luogo con leone, stella e famiglia de Gennaro">Leone, stella, de Gennaro</button>
+          <button type="button" data-q="Quale chiesa o cappella è chiamata anche Starace o Addolorata?">Santa Rita / Starace</button>
+          <button type="button" data-q="Mostrami luoghi collegati al Rosario e al 1762">Rosario 1762</button>
+          <button type="button" data-q="Trova una struttura ricettiva in via Madonna delle Grazie">Ricettività via Madonna delle Grazie</button>
+        </div>
+      </section>
+
+      <section id="answerPanel" class="answer-panel hidden">
+        <div class="answer-head">
+          <div>
+            <div class="eyebrow">RISPOSTA AI</div>
+            <h2 id="answerTitle">Possibili candidati</h2>
+          </div>
+          <span id="answerMeta" class="version mini"></span>
+        </div>
+        <div id="answerBody" class="answer-body"></div>
+      </section>
+
+      <section class="results">
+        <div class="result-head">
+          <h2 id="resultTitle">Candidati documentali</h2>
+          <span id="count" class="muted"></span>
+        </div>
+        <p id="notice" class="notice">Inserisci una domanda oppure usa uno degli esempi. I risultati sono suggerimenti motivati, non verità assolute.</p>
+        <div id="results"></div>
+      </section>
+    </main>
+
+    <footer>
+      Intelligenza Sovrumana Indizi · motore locale gratuito · basato sul master unificato v5.4 di Vico Equense.
+      La risposta AI è una sintesi automatica ricavata dai dati presenti; verificare sempre le fonti e i limiti indicati.
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
